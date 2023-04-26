@@ -7,18 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F66A1E6429F68AF600A980E3 /* PoCChatBotChatGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E6329F68AF600A980E3 /* PoCChatBotChatGPTApp.swift */; };
 		F66A1E6629F68AF600A980E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E6529F68AF600A980E3 /* ContentView.swift */; };
 		F66A1E6829F68AF800A980E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F66A1E6729F68AF800A980E3 /* Assets.xcassets */; };
 		F66A1E6B29F68AF800A980E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F66A1E6A29F68AF800A980E3 /* Preview Assets.xcassets */; };
+		F66A1E7329F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7229F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift */; };
+		F66A1E7529F68C7800A980E3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7429F68C7800A980E3 /* API.swift */; };
+		F66A1E7A29F934B100A980E3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7929F934B100A980E3 /* ViewModel.swift */; };
+		F66A1E7C29F9395B00A980E3 /* DotLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */; };
+		F66A1E7E29F93AC800A980E3 /* MessageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F66A1E6029F68AF600A980E3 /* PoCChatBotChatGPT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoCChatBotChatGPT.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F66A1E6329F68AF600A980E3 /* PoCChatBotChatGPTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoCChatBotChatGPTApp.swift; sourceTree = "<group>"; };
 		F66A1E6529F68AF600A980E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F66A1E6729F68AF800A980E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F66A1E6A29F68AF800A980E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F66A1E7229F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoCChatBotChatGPTApp.swift; sourceTree = "<group>"; };
+		F66A1E7429F68C7800A980E3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		F66A1E7829F9253000A980E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F66A1E7929F934B100A980E3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLoadingView.swift; sourceTree = "<group>"; };
+		F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +60,15 @@
 		F66A1E6229F68AF600A980E3 /* PoCChatBotChatGPT */ = {
 			isa = PBXGroup;
 			children = (
-				F66A1E6329F68AF600A980E3 /* PoCChatBotChatGPTApp.swift */,
+				F66A1E7829F9253000A980E3 /* Info.plist */,
+				F66A1E7429F68C7800A980E3 /* API.swift */,
 				F66A1E6529F68AF600A980E3 /* ContentView.swift */,
+				F66A1E7229F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift */,
 				F66A1E6729F68AF800A980E3 /* Assets.xcassets */,
 				F66A1E6929F68AF800A980E3 /* Preview Content */,
+				F66A1E7929F934B100A980E3 /* ViewModel.swift */,
+				F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */,
+				F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */,
 			);
 			path = PoCChatBotChatGPT;
 			sourceTree = "<group>";
@@ -137,8 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66A1E7C29F9395B00A980E3 /* DotLoadingView.swift in Sources */,
+				F66A1E7329F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift in Sources */,
+				F66A1E7529F68C7800A980E3 /* API.swift in Sources */,
+				F66A1E7E29F93AC800A980E3 /* MessageRowView.swift in Sources */,
+				F66A1E7A29F934B100A980E3 /* ViewModel.swift in Sources */,
 				F66A1E6629F68AF600A980E3 /* ContentView.swift in Sources */,
-				F66A1E6429F68AF600A980E3 /* PoCChatBotChatGPTApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +288,7 @@
 				DEVELOPMENT_TEAM = 2C7W4RF846;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = PoCChatBotChatGPT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -299,7 +317,7 @@
 				DEVELOPMENT_TEAM = 2C7W4RF846;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = PoCChatBotChatGPT/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
