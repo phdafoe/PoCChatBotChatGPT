@@ -14,7 +14,7 @@ class ChatGPTAPI {
     private var historyList = [String]()
     private let urlSession = URLSession.shared
     private var urlRequest: URLRequest{
-        let url = URL(string: Constants.OpenAI.url)!
+        let url = URL(string: Obfuscator().reveal(key: Constants.OpenAI.url))!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         headers.forEach { urlRequest.setValue($1, forHTTPHeaderField: $0) }
@@ -59,7 +59,7 @@ class ChatGPTAPI {
     /// - Returns:  throws -> Data
     private func jsonBody(text: String, stream: Bool = true) throws -> Data {
         let jsonBody: [String: Any] = [
-            "model" : Constants.OpenAI.model,
+            "model" : Obfuscator().reveal(key: Constants.OpenAI.model),
             "temperature": Constants.OpenAI.temperature,
             "max_tokens":Constants.OpenAI.maxTokens,
             "prompt": generateChatGPTPrompt(from: text),

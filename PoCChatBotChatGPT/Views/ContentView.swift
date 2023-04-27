@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var vm = ViewModel(api: ChatGPTAPI(apiKey: Constants.OpenAI.openAIKey))
+    @StateObject var vm = ViewModel(api: ChatGPTAPI(apiKey: Obfuscator().reveal(key: Constants.OpenAI.openAIKey)))
     @FocusState var isTextFieldFocused: Bool
     
     var body: some View {
@@ -67,6 +67,7 @@ struct ContentView: View {
                 .focused($isTextFieldFocused)
                 .disabled(vm.isInteractingWithChatGPT)
             
+                        
             if vm.isInteractingWithChatGPT {
                 DotLoadingView().frame(width: 60, height: 30)
             } else {

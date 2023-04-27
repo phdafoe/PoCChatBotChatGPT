@@ -12,11 +12,14 @@ final class ViewModel: ObservableObject {
     @Published var isInteractingWithChatGPT = false
     @Published var messages: [MessageRow] = []
     @Published var inputMessage: String = ""
+    @Published var outputObfuscator: [UInt8] = []
     
     private let api: ChatGPTAPI
     
     init(api: ChatGPTAPI){
         self.api = api
+//        outputObfuscator = Obfuscator().bytesByObfuscatingString(string: Constants.OpenAI.model)
+//        print(outputObfuscator)
     }
     
     @MainActor
