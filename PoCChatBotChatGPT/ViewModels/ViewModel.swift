@@ -18,8 +18,6 @@ final class ViewModel: ObservableObject {
     
     init(api: ChatGPTAPI){
         self.api = api
-//        outputObfuscator = Obfuscator().bytesByObfuscatingString(string: Constants.OpenAI.model)
-//        print(outputObfuscator)
     }
     
     @MainActor
