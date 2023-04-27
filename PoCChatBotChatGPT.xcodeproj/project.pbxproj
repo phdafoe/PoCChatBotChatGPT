@@ -15,6 +15,8 @@
 		F66A1E7A29F934B100A980E3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7929F934B100A980E3 /* ViewModel.swift */; };
 		F66A1E7C29F9395B00A980E3 /* DotLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */; };
 		F66A1E7E29F93AC800A980E3 /* MessageRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */; };
+		F66A1E8029FA56CC00A980E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E7F29FA56CC00A980E3 /* Constants.swift */; };
+		F66A1E8229FA581D00A980E3 /* Obfuscator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66A1E8129FA581D00A980E3 /* Obfuscator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		F66A1E7929F934B100A980E3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLoadingView.swift; sourceTree = "<group>"; };
 		F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRowView.swift; sourceTree = "<group>"; };
+		F66A1E7F29FA56CC00A980E3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F66A1E8129FA581D00A980E3 /* Obfuscator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Obfuscator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +64,13 @@
 		F66A1E6229F68AF600A980E3 /* PoCChatBotChatGPT */ = {
 			isa = PBXGroup;
 			children = (
+				F66A1E8529FA585500A980E3 /* ViewModels */,
+				F66A1E8429FA583D00A980E3 /* Utils+Helpers */,
+				F66A1E8329FA582700A980E3 /* Views */,
 				F66A1E7829F9253000A980E3 /* Info.plist */,
-				F66A1E7429F68C7800A980E3 /* API.swift */,
-				F66A1E6529F68AF600A980E3 /* ContentView.swift */,
 				F66A1E7229F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift */,
 				F66A1E6729F68AF800A980E3 /* Assets.xcassets */,
 				F66A1E6929F68AF800A980E3 /* Preview Content */,
-				F66A1E7929F934B100A980E3 /* ViewModel.swift */,
-				F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */,
-				F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */,
 			);
 			path = PoCChatBotChatGPT;
 			sourceTree = "<group>";
@@ -79,6 +81,34 @@
 				F66A1E6A29F68AF800A980E3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F66A1E8329FA582700A980E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F66A1E6529F68AF600A980E3 /* ContentView.swift */,
+				F66A1E7B29F9395B00A980E3 /* DotLoadingView.swift */,
+				F66A1E7D29F93AC800A980E3 /* MessageRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F66A1E8429FA583D00A980E3 /* Utils+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F66A1E7F29FA56CC00A980E3 /* Constants.swift */,
+				F66A1E7429F68C7800A980E3 /* API.swift */,
+				F66A1E8129FA581D00A980E3 /* Obfuscator.swift */,
+			);
+			path = "Utils+Helpers";
+			sourceTree = "<group>";
+		};
+		F66A1E8529FA585500A980E3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F66A1E7929F934B100A980E3 /* ViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +184,9 @@
 				F66A1E7C29F9395B00A980E3 /* DotLoadingView.swift in Sources */,
 				F66A1E7329F68C5F00A980E3 /* PoCChatBotChatGPTApp.swift in Sources */,
 				F66A1E7529F68C7800A980E3 /* API.swift in Sources */,
+				F66A1E8229FA581D00A980E3 /* Obfuscator.swift in Sources */,
 				F66A1E7E29F93AC800A980E3 /* MessageRowView.swift in Sources */,
+				F66A1E8029FA56CC00A980E3 /* Constants.swift in Sources */,
 				F66A1E7A29F934B100A980E3 /* ViewModel.swift in Sources */,
 				F66A1E6629F68AF600A980E3 /* ContentView.swift in Sources */,
 			);

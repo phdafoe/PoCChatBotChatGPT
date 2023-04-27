@@ -10,13 +10,14 @@ import SwiftUI
 struct ContentView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @StateObject var vm = ViewModel(api: ChatGPTAPI(apiKey: ChatGPTAPI.openAIKey))
+    @StateObject var vm = ViewModel(api: ChatGPTAPI(apiKey: Constants.OpenAI.openAIKey))
     @FocusState var isTextFieldFocused: Bool
     
     var body: some View {
-        chatListView
-            .navigationTitle("PoC ChatBot ChatGPT")
-        
+        NavigationStack{
+            chatListView
+                .navigationTitle("PoC ChatBot ChatGPT")
+        }
     }
     
     var chatListView: some View {

@@ -5,19 +5,16 @@
 //  Created by TECDATA ENGINEERING on 24/4/23.
 //
 
-//struct Key {
-//
-//}
 
 import Foundation
 
 class ChatGPTAPI {
-    static let openAIKey = "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"
+    
     private let apiKey: String
     private var historyList = [String]()
     private let urlSession = URLSession.shared
     private var urlRequest: URLRequest{
-        let url = URL(string: "https://api.openai.com/v1/completions")!
+        let url = URL(string: Constants.OpenAI.url)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         headers.forEach { urlRequest.setValue($1, forHTTPHeaderField: $0) }
@@ -25,7 +22,7 @@ class ChatGPTAPI {
     }
     
     private let jsonDecoder = JSONDecoder()
-    private var basePrompt = "You are ChatGPT, a large languaje model trained by OpenAI. Ypu answer as consisely as possible for each response (e.g Don't be verbose). It is very important for you to answer as consisely as possible, so pleease remember this. If you are generating a list, do not have too many items.\n\n\n"
+    private var basePrompt = Constants.OpenAI.basePrompt
     
     private var headers: [String: String] {
         [
@@ -42,6 +39,9 @@ class ChatGPTAPI {
         self.apiKey = apiKey
     }
     
+    /// generateChatGPTPrompt
+    /// - Parameter text: from text: String
+    /// - Returns: -> String
     private func generateChatGPTPrompt(from text: String) -> String {
         var prompt = basePrompt + historyListText + "User: \(text)\n\n\nChatGPT:"
         if prompt.count > (4000 * 4){
@@ -52,11 +52,16 @@ class ChatGPTAPI {
     }
     
     
+    /// jsonBody
+    /// - Parameters:
+    ///   - text: text: String
+    ///   - stream: stream: Bool = true
+    /// - Returns:  throws -> Data
     private func jsonBody(text: String, stream: Bool = true) throws -> Data {
         let jsonBody: [String: Any] = [
-            "model" : "text-davinci-003",
-            "temperature": 0.5,
-            "max_tokens":1024,
+            "model" : Constants.OpenAI.model,
+            "temperature": Constants.OpenAI.temperature,
+            "max_tokens":Constants.OpenAI.maxTokens,
             "prompt": generateChatGPTPrompt(from: text),
             "stop": ["\n\n\n", "<|im_end|>"],
             "stream": stream
@@ -64,6 +69,9 @@ class ChatGPTAPI {
         return try JSONSerialization.data(withJSONObject: jsonBody)
     }
     
+    /// sendMesssageStream
+    /// - Parameter text: text: String
+    /// - Returns: async throws -> AsyncThrowingStream<String, Error>
     func sendMesssageStream(text: String) async throws -> AsyncThrowingStream<String, Error> {
         var urlRequest = self.urlRequest
         urlRequest.httpBody = try jsonBody(text: text)
@@ -71,10 +79,10 @@ class ChatGPTAPI {
         let (result, response) = try await urlSession.bytes(for: urlRequest)
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw "Invalid response"
+            throw Constants.OpenAI.invalidResponse
         }
         guard 200...299 ~= httpResponse.statusCode else {
-            throw "Bad response: \(httpResponse.statusCode)"
+            throw "\(Constants.OpenAI.badResponse) \(httpResponse.statusCode)"
         }
         return AsyncThrowingStream<String, Error> { continuation in
             Task(priority: .userInitiated) {
@@ -98,6 +106,10 @@ class ChatGPTAPI {
         }
     }
     
+    
+    /// senMessage
+    /// - Parameter text: text: String
+    /// - Returns: async throws -> String
     func senMessage(text: String) async throws -> String {
         var urlRequest = self.urlRequest
         urlRequest.httpBody = try jsonBody(text: text, stream: false)
@@ -105,10 +117,10 @@ class ChatGPTAPI {
         let (data, response) = try await urlSession.data(for: urlRequest)
         
         guard let httpResponse = response as? HTTPURLResponse else {
-            throw "Invalid response"
+            throw Constants.OpenAI.invalidResponse
         }
         guard 200...299 ~= httpResponse.statusCode else {
-            throw "Bad response: \(httpResponse.statusCode)"
+            throw "\(Constants.OpenAI.badResponse) \(httpResponse.statusCode)"
         }
         
         do {
@@ -120,17 +132,8 @@ class ChatGPTAPI {
             throw error
         }
     }
-    
-    
 }
 
-extension String: Error{
-    
-}
 
-struct CompletionResponse: Decodable {
-    let choices: [Choices]
-}
-struct Choices: Decodable {
-    var text: String
-}
+
+
